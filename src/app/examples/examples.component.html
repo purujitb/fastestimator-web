@@ -1,4 +1,9 @@
 <p>Current List of examples on our repo:</p>
+
+<label for="typeahead-basic">Filter:</label>
+<input id="typeahead-basic" type="text" [(ngModel)]="showcase" [ngbTypeahead]="search"/>
+<hr>
+
 <div>
     <ul>
         <li *ngFor="let example of examples">
@@ -6,4 +11,3 @@
         </li>
     </ul>
 </div>
-
