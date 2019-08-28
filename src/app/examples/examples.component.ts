@@ -8,15 +8,14 @@ import { GithubService } from '../github.service';
 })
 export class ExamplesComponent implements OnInit {
 
-  examples;
+  examples: Array<any>;
 
   constructor(private githubService: GithubService) { }
 
   ngOnInit() {
     this.githubService.getExampleList()
       .subscribe((data) => {
-        this.examples = data.filter(e => (e.type == 'dir')).map(e => { return {name: e.name, url: e.html_url}; });
-        console.log(this.examples);
+        this.examples = (data as any[]).filter(e => (e.type == 'dir')).map(e => { return {name: e.name, url: e.html_url}; });
       });
   }
 
